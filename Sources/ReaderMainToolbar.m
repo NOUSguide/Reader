@@ -210,7 +210,13 @@
 			titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
 			titleLabel.adjustsFontSizeToFitWidth = YES;
 			titleLabel.minimumFontSize = 14.0f;
-			titleLabel.text = [object.fileName stringByDeletingPathExtension];
+            
+            NSString *title = [object.fileName stringByDeletingPathExtension];
+            NSRange range = [title rangeOfString:@"_"];
+            if (range.location != NSNotFound) {
+                title = [title substringFromIndex:range.location + range.length];
+            }
+			titleLabel.text = title;
 
 			[self addSubview:titleLabel]; [titleLabel release];
 		}
