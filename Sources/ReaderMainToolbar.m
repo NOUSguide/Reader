@@ -193,6 +193,20 @@
 		}
 
 #endif // end of READER_ENABLE_PRINT Option
+        
+        // 'Open with' button
+        rightButtonX -= (PRINT_BUTTON_WIDTH + BUTTON_SPACE);
+        
+        _openWithButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        _openWithButton.frame = CGRectMake(rightButtonX, BUTTON_Y, PRINT_BUTTON_WIDTH, BUTTON_HEIGHT);
+        [_openWithButton setImage:[UIImage imageNamed:@"Reader-Share.png"] forState:UIControlStateNormal];
+        [_openWithButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+        [_openWithButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+        _openWithButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        
+        [self addSubview:_openWithButton]; titleWidth -= (PRINT_BUTTON_WIDTH + BUTTON_SPACE);
+        // End 'open with'
 
 		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
 		{
@@ -331,6 +345,7 @@
 }
 
 #pragma mark UIButton action methods
+
 
 - (void)doneButtonTapped:(UIButton *)button
 {

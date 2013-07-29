@@ -52,6 +52,8 @@
 	UIImage *markImageY;
 }
 
+@property (nonatomic, strong) UIButton *openWithButton;
+
 @property (nonatomic, assign, readwrite) id <ReaderMainToolbarDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame document:(ReaderDocument *)object;
